@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'rest_framework',
-    'kiosk',
+    'schedule',
+    'university',
+    'history',
 ]
 
 MIDDLEWARE = [
