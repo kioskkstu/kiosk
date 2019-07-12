@@ -2,40 +2,47 @@ from rest_framework import serializers
 from .models import *
 
 
+class TeacherSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Teacher
+        fields = ('name', 'photo', 'status', 'contact',)
+
+
+class GroupSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Group
+        fields = ('name',)
+
+
 class PreUniversitySerializer(serializers.ModelSerializer):
     class Meta:
         model = PreUniversity
         fields = ('name', 'about',)
 
 
+class DepartmentSerializer(serializers.ModelSerializer):
+    teachers = TeacherSerializer(many=True)
+    groups = GroupSerializer(many=True)
+
+    class Meta:
+        model = Department
+        fields = ('name', 'about', 'teachers', 'groups',)
+
+
 class FacultySerializer(serializers.ModelSerializer):
+    departments = DepartmentSerializer(many=True)
+
     class Meta:
         model = Faculty
-        fields = ('name', 'about',)
+        fields = ('name', 'about', 'departments',)
 
 
 class InstituteSerializer(serializers.ModelSerializer):
+    departments_institute = DepartmentSerializer(many=True)
+
     class Meta:
         model = Institute
-        fields = ('name', 'about',)
-
-
-class DepartmentSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Department
-        fields = ('name', 'about', 'faculty', 'institute',)
-
-
-class TeacherSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Teacher
-        fields = ('name', 'photo', 'status', 'contact', 'department',)
-
-
-class BuildingSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Building
-        fields = ('name', 'location', 'floor',)
+        fields = ('name', 'about', 'departments_institute',)
 
 
 class ClassroomSerializer(serializers.ModelSerializer):
@@ -44,7 +51,14 @@ class ClassroomSerializer(serializers.ModelSerializer):
         fields = ('name', 'floor', 'about',)
 
 
-class GroupSerializer(serializers.ModelSerializer):
+class BuildingSerializer(serializers.ModelSerializer):
+    classrooms = ClassroomSerializer(many=True)
+
     class Meta:
-        model = Group
-        fields = ('name', 'department',)
+        model = Building
+        fields = ('name', 'location', 'floor',)
+
+
+
+
+

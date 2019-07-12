@@ -2,43 +2,47 @@ from django.contrib import admin
 from .models import *
 
 
-class PreUniversityAdmin(admin.ModelAdmin):
-    fields = ['name', 'about']
+class DepartmentInlines(admin.StackedInline):
+    model = Department
+    extra = 1
+
+
+class GroupInlines(admin.StackedInline):
+    model = Group
+    extra = 1
+
+
+class TeacherInlines(admin.StackedInline):
+    model = Teacher
+    extra = 1
 
 
 class FacultyAdmin(admin.ModelAdmin):
-    fields = ['name', 'about']
+    inlines = [DepartmentInlines, ]
 
 
 class InstituteAdmin(admin.ModelAdmin):
-    fields = ['name', 'about']
+    inlines = [DepartmentInlines, ]
 
 
-class DepartmentAdmin(admin.ModelAdmin):
-    fields = ['name', 'about', 'faculty', 'institute']
-
-
-class TeacherAdmin(admin.ModelAdmin):
-    fields = ['name', 'photo', 'status', 'contact', 'department', 'schedule_of_teacher', 'schedule_of_group']
+class ClassroomInlines(admin.StackedInline):
+    model = Classroom
+    extra = 1
 
 
 class BuildingAdmin(admin.ModelAdmin):
-    fields = ['name', 'location', 'floor']
+    inlines = [ClassroomInlines, ]
 
 
-class ClassroomAdmin(admin.ModelAdmin):
-    fields = ['name', 'floor', 'about', 'schedule_of_teacher', 'schedule_of_group']
+class DepartmentAdmin(admin.ModelAdmin):
+    inlines = [TeacherInlines, GroupInlines]
 
 
-class GroupAdmin(admin.ModelAdmin):
-    fields = ['name', 'department', 'schedule_of_teacher', 'schedule_of_group']
-
-
-admin.site.register(PreUniversity, PreUniversityAdmin)
+admin.site.register(PreUniversity,)
 admin.site.register(Faculty, FacultyAdmin)
 admin.site.register(Institute, InstituteAdmin)
 admin.site.register(Department, DepartmentAdmin)
-admin.site.register(Teacher, TeacherAdmin)
+admin.site.register(Teacher, )
 admin.site.register(Building, BuildingAdmin)
-admin.site.register(Classroom, ClassroomAdmin)
-admin.site.register(Group, GroupAdmin)
+admin.site.register(Classroom, )
+admin.site.register(Group, )

@@ -23,7 +23,7 @@ class Department(models.Model):
     about = models.TextField()
     faculty = models.ForeignKey(Faculty, related_name='departments',
                                 on_delete=models.CASCADE)
-    institute = models.ForeignKey(Institute, related_name='institutes',
+    institute = models.ForeignKey(Institute, related_name='departments_institute',
                                   on_delete=models.CASCADE)
 
 
@@ -50,6 +50,7 @@ class Classroom(models.Model):
     name = models.CharField(max_length=50)
     floor = models.PositiveIntegerField()
     about = models.TextField()
+    building = models.ForeignKey(Building, related_name='classrooms', on_delete=models.CASCADE)
     schedule_of_teacher = models.ForeignKey(ScheduleOfTeacher, related_name='classroom_for_schedule',
                                             on_delete=models.CASCADE)
     schedule_of_group = models.ForeignKey(ScheduleOfGroup, related_name='classroom_for_group',
