@@ -5,3 +5,4 @@ pycache
 .idea
 .DS_Store
 kstuvenv
+venv
