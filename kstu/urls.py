@@ -20,6 +20,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^schedule/', include('schedule.urls')),
     url(r'', include('university.urls')),
-    url(r'^/', include('university.urls')),
     url(r'^history/', include('history.urls')),
 ]

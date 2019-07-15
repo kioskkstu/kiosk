@@ -20,6 +20,7 @@ class Faculty(models.Model):
 class Institute(models.Model):
     name = models.CharField(max_length=50)
     about = models.TextField()
+    department = models.ForeignKey(Department, related_name="institutes", on_delete=models.CASCADE)
 
 
 class Teacher(models.Model):
