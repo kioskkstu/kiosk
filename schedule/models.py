@@ -1,6 +1,6 @@
 from django.db import models
 
-from university.models import Teacher
+from university.models import Teacher, Classroom, Group
 
 TIME_CHOICES = (
     (1, '8:00-9:20'),
@@ -32,6 +32,10 @@ TYPE_CHOICES = (
 )
 
 
+class Subject(models.Model):
+    name = models.CharField(max_length=50)
+
+
 class Schedule(models.Model):
     time = models.IntegerField(choices=TIME_CHOICES, default=1)
     day_of_week = models.IntegerField(choices=DAY_CHOICES, default=1)
@@ -39,13 +43,12 @@ class Schedule(models.Model):
     type = models.IntegerField(choices=TYPE_CHOICES, default=1)
     teacher = models.ForeignKey(Teacher, related_name='teachers',
                                 on_delete=models.CASCADE)
-    classroom = models.ForeignKey(Teacher, related_name='classrooms',
+    classroom = models.ForeignKey(Classroom, related_name='classrooms',
                                   on_delete=models.CASCADE)
-    subject = models.ForeignKey(Teacher, related_name='subjects',
+    subject = models.ForeignKey(Subject, related_name='subjects',
                                 on_delete=models.CASCADE)
-    group = models.ForeignKey(Teacher, related_name='groups',
+    group = models.ForeignKey(Group, related_name='groups',
                               on_delete=models.CASCADE)
 
 
-class Subject(models.Model):
-    name = models.CharField(max_length=20)
+
