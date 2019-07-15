@@ -9,6 +9,8 @@ class SubjectAdmin(admin.ModelAdmin):
 
 admin.site.register(Subject, SubjectAdmin)
 
+admin.site.register(Subject)
+admin.site.register(Schedule)
 
 class ScheduleOfTeacherAdmin(admin.ModelAdmin):
     fields = ['time', 'day_of_week', 'week', 'date']
