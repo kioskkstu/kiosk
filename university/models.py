@@ -14,22 +14,21 @@ class Department(models.Model):
 class Faculty(models.Model):
     name = models.CharField(max_length=50)
     about = models.TextField()
-    department = models.ForeignKey(Department, related_name="faculties", on_delete=models.CASCADE)
+    department = models.ForeignKey(Department, unique=True, related_name="faculties", on_delete=models.CASCADE)
 
 
 class Institute(models.Model):
     name = models.CharField(max_length=50)
     about = models.TextField()
-    department = models.ForeignKey(Department, related_name="institutes", on_delete=models.CASCADE)
+    department = models.ForeignKey(Department, unique=True, related_name="institutes", on_delete=models.CASCADE)
 
 
 class Teacher(models.Model):
     name = models.CharField(max_length=50)
-    photo = models.ImageField()
+    photo = models.ImageField(null=True, blank=True)
     status = models.CharField(max_length=50)
     contact = models.CharField(max_length=50)
-    department = models.ForeignKey(Department, related_name='teachers',
-                                   on_delete=models.CASCADE)
+    department = models.ForeignKey(Department, related_name='teachers', on_delete=models.CASCADE)
 
 
 class Building(models.Model):
