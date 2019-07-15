@@ -20,3 +20,4 @@ class ScheduleOfGroupAdmin(admin.ModelAdmin):
 admin.site.register(Subject)
 admin.site.register(ScheduleOfTeacher, ScheduleOfTeacherAdmin)
 admin.site.register(ScheduleOfGroup, ScheduleOfGroupAdmin)
+
