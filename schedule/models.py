@@ -35,6 +35,9 @@ TYPE_CHOICES = (
 class Subject(models.Model):
     name = models.CharField(max_length=20)
 
+    def __str__(self):
+        return self.name
+
 
 class Schedule(models.Model):
     time = models.IntegerField(choices=TIME_CHOICES, default=1)
@@ -46,4 +49,6 @@ class Schedule(models.Model):
     subject = models.ForeignKey(Subject, related_name='subjects', on_delete=models.CASCADE)
     group = models.ForeignKey(Group, related_name='groups', on_delete=models.CASCADE)
 
-
+    class Meta:
+        verbose_name = 'Schedule'
+        verbose_name_plural = 'Schedules'
