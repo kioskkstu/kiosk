@@ -1,6 +1,6 @@
 from django.db import models
 
-from university.models import Teacher, Classroom, Group
+from university.models import *
 
 TIME_CHOICES = (
     (1, '8:00-9:20'),
@@ -33,7 +33,11 @@ TYPE_CHOICES = (
 
 
 class Subject(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.name
+
 
 
 class Schedule(models.Model):
@@ -41,14 +45,12 @@ class Schedule(models.Model):
     day_of_week = models.IntegerField(choices=DAY_CHOICES, default=1)
     week = models.IntegerField(choices=WEEK_CHOICES, default=1)
     type = models.IntegerField(choices=TYPE_CHOICES, default=1)
-    teacher = models.ForeignKey(Teacher, related_name='teachers',
-                                on_delete=models.CASCADE)
-    classroom = models.ForeignKey(Classroom, related_name='classrooms',
-                                  on_delete=models.CASCADE)
-    subject = models.ForeignKey(Subject, related_name='subjects',
-                                on_delete=models.CASCADE)
-    group = models.ForeignKey(Group, related_name='groups',
-                              on_delete=models.CASCADE)
+    teacher = models.ForeignKey(Teacher, related_name='teachers', on_delete=models.CASCADE)
+    classroom = models.ForeignKey(Classroom, related_name='classrooms', on_delete=models.CASCADE)
+    subject = models.ForeignKey(Subject, related_name='subjects', on_delete=models.CASCADE)
+    group = models.ForeignKey(Group, related_name='groups', on_delete=models.CASCADE)
 
-
+    class Meta:
+        verbose_name = 'Schedule'
+        verbose_name_plural = 'Schedules'
 
