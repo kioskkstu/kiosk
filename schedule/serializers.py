@@ -9,11 +9,11 @@ class SubjectSerializer(serializers.ModelSerializer):
 
 
 class ScheduleSerializer(serializers.ModelSerializer):
-    subjects = SubjectSerializer()
-    teachers = TeacherSerializer()
-    classrooms = ClassroomSerializer()
-    groups = GroupSerializer()
+    subject = SubjectSerializer()
+    teacher = TeacherSerializer()
+    classroom = ClassroomSerializer()
+    group = GroupSerializer()
 
     class Meta:
         model = Schedule
-        fields = ('time', 'day_of_week', 'subjects', 'week', 'type', 'teachers', 'classrooms', 'groups',)
+        fields = ('time', 'day_of_week', 'subject', 'week', 'type', 'teacher', 'classroom', 'group',)

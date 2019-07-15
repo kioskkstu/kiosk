@@ -30,19 +30,19 @@ class DepartmentSerializer(serializers.ModelSerializer):
 
 
 class FacultySerializer(serializers.ModelSerializer):
-    departments = DepartmentSerializer(many=True)
+    department = DepartmentSerializer(many=True)
 
     class Meta:
         model = Faculty
-        fields = ('name', 'about', 'departments',)
+        fields = ('name', 'about', 'department',)
 
 
 class InstituteSerializer(serializers.ModelSerializer):
-    departments_institute = DepartmentSerializer(many=True)
+    department = DepartmentSerializer(many=True)
 
     class Meta:
         model = Institute
-        fields = ('name', 'about', 'departments_institute',)
+        fields = ('name', 'about', 'department',)
 
 
 class ClassroomSerializer(serializers.ModelSerializer):
@@ -56,7 +56,7 @@ class BuildingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Building
-        fields = ('name', 'location', 'floor',)
+        fields = ('name', 'location', 'floor', 'classrooms')
 
 
 
