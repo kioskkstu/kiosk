@@ -3,8 +3,6 @@ from .serializers import *
 from .models import *
 
 
-# Create your views here.
-
 class HistoryAPIView(generics.ListAPIView):
     queryset = History.objects.all()
     serializer_class = HistorySerializer
