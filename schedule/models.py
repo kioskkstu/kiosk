@@ -39,6 +39,7 @@ class Subject(models.Model):
         return self.name
 
 
+
 class Schedule(models.Model):
     time = models.IntegerField(choices=TIME_CHOICES, default=1)
     day_of_week = models.IntegerField(choices=DAY_CHOICES, default=1)
@@ -52,3 +53,4 @@ class Schedule(models.Model):
     class Meta:
         verbose_name = 'Schedule'
         verbose_name_plural = 'Schedules'
+

@@ -26,4 +26,10 @@ class Migration(migrations.Migration):
             name='subject',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='subjects', to='schedule.Subject'),
         ),
-    ]
+
+        migrations.AlterField(
+            model_name='subject',
+            name='name',
+            field=models.CharField(max_length=50),
+        ),
+

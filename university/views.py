@@ -4,7 +4,6 @@ from .models import *
 from .serializers import *
 
 
-# Create your views here.
 class PreUniversityAPIView(generics.ListAPIView):
     queryset = PreUniversity.objects.all()
     serializer_class = PreUniversitySerializer
