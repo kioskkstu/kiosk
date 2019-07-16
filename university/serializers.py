@@ -30,7 +30,7 @@ class DepartmentSerializer(serializers.ModelSerializer):
 
 
 class FacultySerializer(serializers.ModelSerializer):
-    department = DepartmentSerializer(many=True)
+    departments_of_faculty = DepartmentSerializer(many=True)
 
     class Meta:
         model = Faculty
@@ -38,7 +38,7 @@ class FacultySerializer(serializers.ModelSerializer):
 
 
 class InstituteSerializer(serializers.ModelSerializer):
-    department = DepartmentSerializer(many=True)
+    departments_of_institute = DepartmentSerializer(many=True)
 
     class Meta:
         model = Institute
