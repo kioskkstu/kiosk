@@ -13,22 +13,9 @@ class PreUniversity(models.Model):
         verbose_name_plural = 'Pre-university preparations'
 
 
-class Department(models.Model):
-    name = models.CharField(max_length=50)
-    about = models.TextField()
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = 'Department'
-        verbose_name_plural = 'Departments'
-
-
 class Faculty(models.Model):
     name = models.CharField(max_length=50)
     about = models.TextField()
-    department = models.ForeignKey(Department, related_name="faculties", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -41,7 +28,6 @@ class Faculty(models.Model):
 class Institute(models.Model):
     name = models.CharField(max_length=50)
     about = models.TextField()
-    department = models.ForeignKey(Department, related_name="institutes", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -49,6 +35,22 @@ class Institute(models.Model):
     class Meta:
         verbose_name = 'Institute'
         verbose_name_plural = 'Institutes'
+
+
+class Department(models.Model):
+    name = models.CharField(max_length=50)
+    about = models.TextField()
+    faculty = models.ForeignKey(Faculty, related_name="departments_of_faculty",
+                                on_delete=models.CASCADE, null=True, blank=True)
+    institute = models.ForeignKey(Institute, related_name="departments_of_institute",
+                                  on_delete=models.CASCADE, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Department'
+        verbose_name_plural = 'Departments'
 
 
 class Teacher(models.Model):
@@ -80,9 +82,9 @@ class Building(models.Model):
 
 
 class Classroom(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=20)
     floor = models.PositiveIntegerField()
-    about = models.TextField()
+    about = models.CharField(null=True, max_length=50)
     building = models.ForeignKey(Building, related_name='classrooms', on_delete=models.CASCADE)
 
     def __str__(self):
