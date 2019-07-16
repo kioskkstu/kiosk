@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -112,18 +113,26 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ru'
 
+# django-modeltranslation settings
+gettext = lambda s: s
+
 LANGUAGES = (
-    ('ru', 'Russian'),
-    ('en', 'English'),
+    ('ru', gettext('Russian')),
+    ('en', gettext('English')),
 )
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
+MODELTRANSLATION_LANGUAGES = ('en', 'ru',)
+MODELTRANSLATION_FALLBACK_LANGUAGES = ('en', 'ru')
+
+# end of django-modeltranslation settings
+
+LOCALE_PATHS = [(os.path.join(BASE_DIR, 'locale')), ]
 
 USE_I18N = True
 
 USE_L10N = True
 
-LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale'),
-)
 
 TIME_ZONE = 'Asia/Bishkek'
 
