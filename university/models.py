@@ -2,8 +2,8 @@ from django.db import models
 
 
 class PreUniversity(models.Model):
-    name = models.CharField(max_length=40)
-    about = models.TextField()
+    name = models.CharField(max_length=40, verbose_name='Name')
+    about = models.TextField(verbose_name='About')
 
     def __str__(self):
         return self.name
@@ -14,8 +14,8 @@ class PreUniversity(models.Model):
 
 
 class Faculty(models.Model):
-    name = models.CharField(max_length=50)
-    about = models.TextField()
+    name = models.CharField(max_length=50, verbose_name='Name')
+    about = models.TextField(verbose_name='About')
 
     def __str__(self):
         return self.name
@@ -26,8 +26,8 @@ class Faculty(models.Model):
 
 
 class Institute(models.Model):
-    name = models.CharField(max_length=50)
-    about = models.TextField()
+    name = models.CharField(max_length=50, verbose_name='Name')
+    about = models.TextField(verbose_name='About')
 
     def __str__(self):
         return self.name
@@ -38,11 +38,11 @@ class Institute(models.Model):
 
 
 class Department(models.Model):
-    name = models.CharField(max_length=50)
-    about = models.TextField()
-    faculty = models.ForeignKey(Faculty, related_name="departments_of_faculty",
+    name = models.CharField(max_length=50, verbose_name='Name')
+    about = models.TextField(verbose_name='About')
+    faculty = models.ForeignKey(Faculty, related_name="departments_of_faculty", verbose_name='Faculty',
                                 on_delete=models.CASCADE, null=True, blank=True)
-    institute = models.ForeignKey(Institute, related_name="departments_of_institute",
+    institute = models.ForeignKey(Institute, related_name="departments_of_institute", verbose_name='Institute',
                                   on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
@@ -54,11 +54,12 @@ class Department(models.Model):
 
 
 class Teacher(models.Model):
-    name = models.CharField(max_length=50)
-    photo = models.ImageField(null=True, blank=True)
-    status = models.CharField(max_length=50)
-    contact = models.CharField(max_length=50)
-    department = models.ForeignKey(Department, related_name='teachers', on_delete=models.CASCADE)
+    name = models.CharField(max_length=50, verbose_name='Name')
+    photo = models.ImageField(null=True, blank=True, verbose_name='Photo')
+    status = models.CharField(max_length=50, verbose_name='Status')
+    contact = models.CharField(max_length=50, verbose_name='Contact')
+    department = models.ForeignKey(Department, related_name='teachers',
+                                   on_delete=models.CASCADE, verbose_name='Department')
 
     def __str__(self):
         return self.name
@@ -69,9 +70,10 @@ class Teacher(models.Model):
 
 
 class Building(models.Model):
-    name = models.CharField(max_length=50)
-    location = models.CharField(max_length=50)
-    floor = models.PositiveIntegerField()
+    name = models.CharField(max_length=50, verbose_name='Name')
+    location = models.CharField(max_length=50, verbose_name='Location')
+    # TODO: what write in location? leave location or not
+    floor = models.PositiveIntegerField(verbose_name='Floor')
 
     def __str__(self):
         return self.name
@@ -82,10 +84,11 @@ class Building(models.Model):
 
 
 class Classroom(models.Model):
-    name = models.CharField(max_length=20)
-    floor = models.PositiveIntegerField()
-    about = models.CharField(null=True, max_length=50)
-    building = models.ForeignKey(Building, related_name='classrooms', on_delete=models.CASCADE)
+    name = models.CharField(max_length=20, verbose_name='Name')
+    floor = models.PositiveIntegerField(verbose_name='Floor')
+    about = models.CharField(null=True, max_length=50, verbose_name='About')
+    building = models.ForeignKey(Building, related_name='classrooms',
+                                 on_delete=models.CASCADE, verbose_name='Building')
 
     def __str__(self):
         return self.name
@@ -96,8 +99,9 @@ class Classroom(models.Model):
 
 
 class Group(models.Model):
-    name = models.CharField(max_length=20)
-    department = models.ForeignKey(Department, related_name='groups', on_delete=models.CASCADE)
+    name = models.CharField(max_length=20, verbose_name='Name')
+    department = models.ForeignKey(Department, related_name='groups',
+                                   on_delete=models.CASCADE, verbose_name='Department')
 
     def __str__(self):
         return self.name
