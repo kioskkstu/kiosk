@@ -17,3 +17,4 @@ class ScheduleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Schedule
         fields = ('time', 'day_of_week', 'subject', 'week', 'type', 'teacher', 'classroom', 'group',)
+
