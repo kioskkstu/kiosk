@@ -24,4 +24,3 @@ admin.site.register(Teacher)
 admin.site.register(Building)
 admin.site.register(Classroom)
 admin.site.register(Group)
-

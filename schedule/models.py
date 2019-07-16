@@ -1,5 +1,3 @@
-from django.db import models
-
 from university.models import *
 
 TIME_CHOICES = (
@@ -33,21 +31,22 @@ TYPE_CHOICES = (
 
 
 class Subject(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, verbose_name='Name')
 
     def __str__(self):
         return self.name
 
 
 class Schedule(models.Model):
-    time = models.IntegerField(choices=TIME_CHOICES, default=1)
-    day_of_week = models.IntegerField(choices=DAY_CHOICES, default=1)
-    week = models.IntegerField(choices=WEEK_CHOICES, default=1)
-    type = models.IntegerField(choices=TYPE_CHOICES, default=1)
-    teacher = models.ForeignKey(Teacher, related_name='teachers', on_delete=models.CASCADE)
-    classroom = models.ForeignKey(Classroom, related_name='classrooms', on_delete=models.CASCADE)
-    subject = models.ForeignKey(Subject, related_name='subjects', on_delete=models.CASCADE)
-    group = models.ForeignKey(Group, related_name='groups', on_delete=models.CASCADE)
+    time = models.IntegerField(choices=TIME_CHOICES, default=1, verbose_name='Time')
+    day_of_week = models.IntegerField(choices=DAY_CHOICES, default=1, verbose_name='Day of the week')
+    week = models.IntegerField(choices=WEEK_CHOICES, default=1, verbose_name='Week')
+    type_of_lecture = models.IntegerField(choices=TYPE_CHOICES, default=1, verbose_name='Type of lecture')
+    teacher = models.ForeignKey(Teacher, related_name='teachers', on_delete=models.CASCADE, verbose_name='Teacher')
+    classroom = models.ForeignKey(Classroom, related_name='classrooms',
+                                  on_delete=models.CASCADE, verbose_name='Classroom')
+    subject = models.ForeignKey(Subject, related_name='subjects', on_delete=models.CASCADE, verbose_name='Subject')
+    group = models.ForeignKey(Group, related_name='groups', on_delete=models.CASCADE, verbose_name='Group')
 
     class Meta:
         verbose_name = 'Schedule'
