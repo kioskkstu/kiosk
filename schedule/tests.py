@@ -16,7 +16,7 @@ class ScheduleModelTests(TestCase):
 
         self.subject = Subject.objects.create(name='test')
 
-        self.teacher = Teacher.objects.create(name='test', photo='', status='test', contact='1',
+        self.teacher = Teacher.objects.create(name='test', photo='', status='test', contact='email',
                                               department=self.department)
         self.classroom = Classroom.objects.create(name='test', floor='1', about='test',
                                                   building=self.building)
