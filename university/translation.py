@@ -4,50 +4,50 @@ from .models import *
 
 @register(Teacher)
 class TeacherTranslationOptions(TranslationOptions):
-    fields = ('name', 'photo', 'status', 'contact', )
-    required_languages = ('en', )
+    fields = ('name', 'status', 'contact', )
+    required_languages = ('ru', 'en', 'kg', )
 
 
 @register(Group)
 class GroupTranslationOptions(TranslationOptions):
     fields = ('name',)
-    required_languages = ('en', )
+    required_languages = ('ru', 'en', 'kg', )
 
 
 @register(PreUniversity)
 class PreUniversityTranslationOptions(TranslationOptions):
     fields = ('name', 'about',)
-    required_languages = ('en', )
+    required_languages = ('ru', 'en', 'kg', )
 
 
 @register(Department)
 class DepartmentTranslationOptions(TranslationOptions):
-    fields = ('name', 'about', 'teachers', 'groups',)
-    required_languages = ('en', )
+    fields = ('name', 'about', )
+    required_languages = ('ru', 'en', 'kg', )
 
 
 @register(Faculty)
 class FacultyTranslationOptions(TranslationOptions):
-    fields = ('name', 'about', 'department',)
-    required_languages = ('en', )
+    fields = ('name', 'about', )
+    required_languages = ('ru', 'en', 'kg', )
 
 
 @register(Institute)
 class InstituteTranslationOptions(TranslationOptions):
-    fields = ('name', 'about', 'department',)
-    required_languages = ('en', )
+    fields = ('name', 'about', )
+    required_languages = ('ru', 'en', 'kg', )
 
 
 @register(Classroom)
 class ClassroomTranslationOptions(TranslationOptions):
-    fields = ('name', 'floor', 'about',)
-    required_languages = ('en', )
+    fields = ('name', 'about',)
+    required_languages = ('ru', 'en', 'kg', )
 
 
 @register(Building)
 class BuildingTranslationOptions(TranslationOptions):
-    fields = ('name', 'location', 'floor', 'classrooms')
-    required_languages = ('en', )
+    fields = ('name', 'location', )
+    required_languages = ('ru', 'en', 'kg', )
 
 
 

@@ -119,11 +119,12 @@ gettext = lambda s: s
 LANGUAGES = (
     ('ru', gettext('Russian')),
     ('en', gettext('English')),
+    ('kg', gettext('Kyrgyz')),
 )
 
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
-MODELTRANSLATION_LANGUAGES = ('en', 'ru',)
-MODELTRANSLATION_FALLBACK_LANGUAGES = ('en', 'ru')
+MODELTRANSLATION_LANGUAGES = ('ru', 'en',  'kg', )
+MODELTRANSLATION_FALLBACK_LANGUAGES = ('ru', 'en', 'kg', )
 
 # end of django-modeltranslation settings
 
@@ -143,3 +144,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'media'

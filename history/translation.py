@@ -5,5 +5,5 @@ from .models import *
 @register(History)
 class HistoryTranslationOptions(TranslationOptions):
     fields = ('name', 'text', )
-    required_languages = ('en', )
+    required_languages = ('ru', 'en', 'kg', )
 
