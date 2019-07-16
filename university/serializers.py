@@ -34,7 +34,7 @@ class FacultySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Faculty
-        fields = ('name', 'about', 'department',)
+        fields = ('name', 'about', 'departments_of_faculty',)
 
 
 class InstituteSerializer(serializers.ModelSerializer):
@@ -42,7 +42,7 @@ class InstituteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Institute
-        fields = ('name', 'about', 'department',)
+        fields = ('name', 'about', 'departments_of_institute',)
 
 
 class ClassroomSerializer(serializers.ModelSerializer):
