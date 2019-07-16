@@ -9,6 +9,11 @@ class PreUniversityAPIView(generics.ListAPIView):
     serializer_class = PreUniversitySerializer
 
 
+class DepartmentAPIView(generics.ListAPIView):
+    queryset = Department.objects.all()
+    serializer_class = DepartmentSerializer
+
+
 class FacultyAPIView(generics.ListAPIView):
     queryset = Faculty.objects.all()
     serializer_class = FacultySerializer
@@ -17,31 +22,6 @@ class FacultyAPIView(generics.ListAPIView):
 class InstituteAPIView(generics.ListAPIView):
     queryset = Institute.objects.all()
     serializer_class = InstituteSerializer
-
-
-class DepartmentAPIView(generics.ListAPIView):
-    queryset = Department.objects.all()
-    serializer_class = DepartmentSerializer
-
-
-class PreUniversityDetailAPIView(generics.RetrieveAPIView):
-    queryset = PreUniversity.objects.all()
-    serializer_class = PreUniversitySerializer
-
-
-class FacultyDetailAPIView(generics.RetrieveAPIView):
-    queryset = Faculty.objects.all()
-    serializer_class = FacultySerializer
-
-
-class InstituteDetailAPIView(generics.RetrieveAPIView):
-    queryset = Institute.objects.all()
-    serializer_class = InstituteSerializer
-
-
-class DepartmentDetailAPIView(generics.RetrieveAPIView):
-    queryset = Department.objects.all()
-    serializer_class = DepartmentSerializer
 
 
 class TeacherAPIView(generics.ListAPIView):
@@ -62,3 +42,23 @@ class ClassroomAPIView(generics.ListAPIView):
 class GroupAPIView(generics.ListAPIView):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+
+
+class PreUniversityDetailAPIView(generics.RetrieveAPIView):
+    queryset = PreUniversity.objects.all()
+    serializer_class = PreUniversitySerializer
+
+
+class DepartmentDetailAPIView(generics.RetrieveAPIView):
+    queryset = Department.objects.all()
+    serializer_class = DepartmentSerializer
+
+
+class FacultyDetailAPIView(generics.RetrieveAPIView):
+    queryset = Faculty.objects.all()
+    serializer_class = FacultySerializer
+
+
+class InstituteDetailAPIView(generics.RetrieveAPIView):
+    queryset = Institute.objects.all()
+    serializer_class = InstituteSerializer

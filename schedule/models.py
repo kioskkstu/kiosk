@@ -12,12 +12,12 @@ TIME_CHOICES = (
 )
 
 DAY_CHOICES = (
-    (1, 'ПН'),
-    (2, 'ВТ'),
-    (3, 'СР'),
-    (4, 'ЧТ'),
-    (5, 'ПТ'),
-    (6, 'СБ'),
+    (1, 'Monday'),
+    (2, 'Tuesday'),
+    (3, 'Wednesday'),
+    (4, 'Thursday'),
+    (5, 'Friday'),
+    (6, 'Saturday'),
 )
 
 WEEK_CHOICES = (
@@ -39,7 +39,6 @@ class Subject(models.Model):
         return self.name
 
 
-
 class Schedule(models.Model):
     time = models.IntegerField(choices=TIME_CHOICES, default=1)
     day_of_week = models.IntegerField(choices=DAY_CHOICES, default=1)
@@ -53,4 +52,3 @@ class Schedule(models.Model):
     class Meta:
         verbose_name = 'Schedule'
         verbose_name_plural = 'Schedules'
-
