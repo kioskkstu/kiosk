@@ -17,13 +17,15 @@ class UniversityModelTests(TestCase):
         self.old_cnt7 = Classroom.objects.count()
         self.old_cnt8 = Group.objects.count()
         self.preuniversity = PreUniversity.objects.create(name='test', about='test')
-        self.department = Department.objects.create(name='test', about='test')
-        self.faculty = Faculty.objects.create(name='test', about='test', department=self.department)
-        self.institute = Institute.objects.create(name='test', about='test', department=self.department)
+        self.faculty = Faculty.objects.create(name='test', about='test')
+        self.institute = Institute.objects.create(name='test', about='test')
+        self.department = Department.objects.create(name='test', about='test', faculty=self.faculty,
+                                                    institute=self.institute)
         self.teacher = Teacher.objects.create(name='test', photo='', status='test', contact='test',
                                               department=self.department)
         self.building = Building.objects.create(name='test', location='test', floor=1)
-        self.classroom = Classroom.objects.create(name='test', floor=1, about='test', building=self.building)
+        self.classroom = Classroom.objects.create(name='test', floor=1, about='test',
+                                                  building=self.building)
         self.group = Group.objects.create(name='test', department=self.department)
 
     def test_model_create_PreUniversity(self):
@@ -74,21 +76,21 @@ class UniversityModelTests(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertContains(response, self.department)
 
-    # def test_api_get_faculty(self):
-    #     response = self.client.get(
-    #         reverse('faculty'),`
-    #         kwargs={'pk': self.faculty.id}
-    #     )
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
-    #     self.assertContains(response, self.faculty)
+    def test_api_get_faculty(self):
+        response = self.client.get(
+            reverse('faculty'),
+            kwargs={'pk': self.faculty.id}
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertContains(response, self.faculty)
 
-    # def test_api_get_institute(self):
-    #     response = self.client.get(
-    #         reverse('institute'),
-    #         kwargs={'pk': self.institute.id}
-    #     )
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
-    #     self.assertContains(response, self.institute)
+    def test_api_get_institute(self):
+        response = self.client.get(
+            reverse('institute'),
+            kwargs={'pk': self.institute.id}
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertContains(response, self.institute)
 
     def test_api_get_teacher(self):
         response = self.client.get(
@@ -122,24 +124,24 @@ class UniversityModelTests(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertContains(response, self.group)
 
-    def test_api_get_preuniversity_detail(self):
-        response = self.client.get('/preuniversity/%s/' % self.preuniversity.id)
-
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(
-            (response.data['name'], response.data['about']),
-            ('test', 'test')
-        )
-
-    def test_api_get_department_detail(self):
-        response = self.client.get('/department/%s/' % self.department.id)
-
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(
-            (response.data['name'], response.data['about']),
-            ('test', 'test')
-        )
-
+    # def test_api_get_preuniversity_detail(self):
+    #     response = self.client.get('/preuniversity/%s/' % self.preuniversity.id)
+    #
+    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
+    #     self.assertEqual(
+    #         (response.data['name'], response.data['about']),
+    #         ('test', 'test')
+    #     )
+    #
+    # def test_api_get_department_detail(self):
+    #     response = self.client.get('/department/%s/' % self.department.id)
+    #
+    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
+    #     self.assertEqual(
+    #         (response.data['name'], response.data['about']),
+    #         ('test', 'test')
+    #     )
+    #
     # def test_api_get_faculty_detail(self):
     #     response = self.client.get('/faculty/%s/' % self.faculty.id)
     #
@@ -148,7 +150,7 @@ class UniversityModelTests(TestCase):
     #         (response.data['name'], response.data['about']),
     #         ('test', 'test')
     #     )
-
+    #
     # def test_api_get_institute_detail(self):
     #     response = self.client.get('/institute/%s/' % self.institute.id)
     #

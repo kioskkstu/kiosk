@@ -10,18 +10,20 @@ class ScheduleModelTests(TestCase):
     def setUp(self):
         self.old_cnt1 = Subject.objects.count()
         self.old_cnt2 = Schedule.objects.count()
-
-        self.department = Department.objects.create(name='temp', about='temp')
-        self.building = Building.objects.create(name='1', location='1', floor='1')
-
+        self.faculty = Faculty.objects.create(name='test', about='test')
+        self.institute = Institute.objects.create(name='test', about='test')
+        self.department = Department.objects.create(name='test', about='test', faculty=self.faculty,
+                                                    institute=self.institute)
+        self.teacher = Teacher.objects.create(name='test', photo='', status='test', contact='test',
+                                              department=self.department)
+        self.building = Building.objects.create(name='test', location='test', floor=1)
+        self.classroom = Classroom.objects.create(name='test', floor=1, about='test',
+                                                  building=self.building)
+        self.group = Group.objects.create(name='test', department=self.department)
         self.subject = Subject.objects.create(name='temp')
-
-        self.teacher = Teacher.objects.create(name='Steve', photo='', status='temp', contact='0000000000', department=self.department)
-        self.classroom = Classroom.objects.create(name='ComputerScience', floor='1', about='temp', building=self.building)
-        self.group = Group.objects.create(name='temp', department=self.department)
-
-        Schedule.objects.create(time='1', day_of_week='1', week='1', type='1', teacher=self.teacher, classroom=self.classroom, subject=self.subject,
-                                group=self.group)
+        self.schedule = Schedule.objects.create(time=1, day_of_week=1, week=1, type_of_lecture=1,
+                                                teacher=self.teacher, classroom=self.classroom,
+                                                subject=self.subject, group=self.group)
 
     def test_model_create_Subject(self):
         self.new_cnt = Subject.objects.count()
@@ -34,7 +36,7 @@ class ScheduleModelTests(TestCase):
     def test_api_get_ScheduleOFTeacher(self):
         response = self.client.get(
             reverse('teacher'),
-            kwargs={'teacher': self.teacher.id}
+            kwargs={'teacher': self.schedule.id}
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertContains(response, self.teacher)
@@ -42,7 +44,7 @@ class ScheduleModelTests(TestCase):
     def test_api_get_ScheduleOFGroup(self):
         response = self.client.get(
             reverse('group'),
-            kwargs={'group': self.group.id}
+            kwargs={'group': self.schedule.id}
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertContains(response, self.group)
