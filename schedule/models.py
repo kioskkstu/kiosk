@@ -10,12 +10,12 @@ TIME_CHOICES = (
 )
 
 DAY_CHOICES = (
-    (1, 'ПН'),
-    (2, 'ВТ'),
-    (3, 'СР'),
-    (4, 'ЧТ'),
-    (5, 'ПТ'),
-    (6, 'СБ'),
+    (1, 'Monday'),
+    (2, 'Tuesday'),
+    (3, 'Wednesday'),
+    (4, 'Thursday'),
+    (5, 'Friday'),
+    (6, 'Saturday'),
 )
 
 WEEK_CHOICES = (
