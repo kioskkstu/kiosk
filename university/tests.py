@@ -4,7 +4,6 @@ from rest_framework import status
 from django.urls import reverse
 
 
-# Create your tests here.
 class UniversityModelTests(TestCase):
     @classmethod
     def setUp(self):
