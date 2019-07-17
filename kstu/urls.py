@@ -15,14 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.conf.urls.static import static
+from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from kstu import settings
 
-urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+urlpatterns = i18n_patterns(
+    url(r'^i18n/', include('django.conf.urls.i18n')),    url(r'^admin/', admin.site.urls),
     url(r'^schedule/', include('schedule.urls')),
     url(r'', include('university.urls')),
     url(r'^history/', include('history.urls'))
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
