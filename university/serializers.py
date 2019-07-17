@@ -5,7 +5,7 @@ from .models import *
 class TeacherSerializer(serializers.ModelSerializer):
     class Meta:
         model = Teacher
-        fields = ('name', 'photo', 'status', 'contact',)
+        fields = ('id', 'name', 'photo', 'status', 'contact',)
 
 
 class GroupSerializer(serializers.ModelSerializer):

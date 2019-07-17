@@ -10,12 +10,12 @@ TIME_CHOICES = (
 )
 
 DAY_CHOICES = (
-    (1, 'ПН'),
-    (2, 'ВТ'),
-    (3, 'СР'),
-    (4, 'ЧТ'),
-    (5, 'ПТ'),
-    (6, 'СБ'),
+    (1, 'Monday'),
+    (2, 'Tuesday'),
+    (3, 'Wednesday'),
+    (4, 'Thursday'),
+    (5, 'Friday'),
+    (6, 'Saturday'),
 )
 
 WEEK_CHOICES = (
@@ -27,11 +27,6 @@ TYPE_CHOICES = (
     (1, 'Лк'),
     (2, 'Пр'),
     (3, 'Лб'),
-)
-
-SEMESTER_CHOICES = (
-    (1, 1),
-    (2, 2),
 )
 
 
@@ -46,7 +41,6 @@ class Schedule(models.Model):
     time = models.IntegerField(choices=TIME_CHOICES, default=1, verbose_name='Time')
     day_of_week = models.IntegerField(choices=DAY_CHOICES, default=1, verbose_name='Day of the week')
     week = models.IntegerField(choices=WEEK_CHOICES, default=1, verbose_name='Week')
-    semester = models.IntegerField(choices=SEMESTER_CHOICES, default=1, verbose_name='Semester')
     type_of_lecture = models.IntegerField(choices=TYPE_CHOICES, default=1, verbose_name='Type of lecture')
     teacher = models.ForeignKey(Teacher, related_name='teachers', on_delete=models.CASCADE, verbose_name='Teacher')
     classroom = models.ForeignKey(Classroom, related_name='classrooms',

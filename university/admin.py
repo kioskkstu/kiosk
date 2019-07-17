@@ -16,11 +16,19 @@ class InstituteAdmin(admin.ModelAdmin):
     inlines = [DepartmentInline, ]
 
 
+class ClassroomInline(admin.StackedInline):
+    model = Classroom
+    extra = 1
+
+
+class BuildingAdmin(admin.ModelAdmin):
+    inlines = [ClassroomInline, ]
+
+
 admin.site.register(PreUniversity)
 admin.site.register(Faculty, FacultyAdmin)
 admin.site.register(Institute, InstituteAdmin)
 admin.site.register(Department)
 admin.site.register(Teacher)
-admin.site.register(Building)
-admin.site.register(Classroom)
+admin.site.register(Building, BuildingAdmin)
 admin.site.register(Group)
