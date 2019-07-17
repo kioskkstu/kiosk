@@ -46,7 +46,7 @@ class ClassroomTranslationOptions(TranslationOptions):
 
 @register(Building)
 class BuildingTranslationOptions(TranslationOptions):
-    fields = ('name', 'location', )
+    fields = ('name', )
     required_languages = ('ru', 'en', 'kg', )
 
 

@@ -71,8 +71,6 @@ class Teacher(models.Model):
 
 class Building(models.Model):
     name = models.CharField(max_length=50, verbose_name='Name')
-    location = models.CharField(max_length=50, verbose_name='Location')
-    # TODO: what write in location? leave location or not
     floor = models.PositiveIntegerField(verbose_name='Floor')
 
     def __str__(self):
