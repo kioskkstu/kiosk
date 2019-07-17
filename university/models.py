@@ -1,5 +1,13 @@
 from django.db import models
 
+GRADE_CHOICES = (
+    (1, 1),
+    (2, 2),
+    (3, 3),
+    (4, 4),
+    (5, 5),
+)
+
 
 class PreUniversity(models.Model):
     name = models.CharField(max_length=40, verbose_name='Name')
@@ -100,6 +108,7 @@ class Classroom(models.Model):
 
 class Group(models.Model):
     name = models.CharField(max_length=20, verbose_name='Name')
+    grade = models.IntegerField(choices=GRADE_CHOICES, default=1, verbose_name='Grade')
     department = models.ForeignKey(Department, related_name='groups',
                                    on_delete=models.CASCADE, verbose_name='Department')
 

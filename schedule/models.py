@@ -29,6 +29,11 @@ TYPE_CHOICES = (
     (3, 'Лб'),
 )
 
+SEMESTER_CHOICES = (
+    (1, 1),
+    (2, 2),
+)
+
 
 class Subject(models.Model):
     name = models.CharField(max_length=50, verbose_name='Name')
@@ -41,6 +46,7 @@ class Schedule(models.Model):
     time = models.IntegerField(choices=TIME_CHOICES, default=1, verbose_name='Time')
     day_of_week = models.IntegerField(choices=DAY_CHOICES, default=1, verbose_name='Day of the week')
     week = models.IntegerField(choices=WEEK_CHOICES, default=1, verbose_name='Week')
+    semester = models.IntegerField(choices=SEMESTER_CHOICES, default=z, verbose_name='Semester')
     type_of_lecture = models.IntegerField(choices=TYPE_CHOICES, default=1, verbose_name='Type of lecture')
     teacher = models.ForeignKey(Teacher, related_name='teachers', on_delete=models.CASCADE, verbose_name='Teacher')
     classroom = models.ForeignKey(Classroom, related_name='classrooms',
