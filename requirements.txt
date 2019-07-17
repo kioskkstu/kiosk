@@ -1,7 +1,8 @@
-modeltranslation
 Babel==2.6.0
-Django==2.2.3
+Django==2.2
 django-extensions==2.1.6
+django-localeurl==2.0.2
+django-modeltranslation==0.13.2
 djangorestframework==3.9.2
 mysqlclient==1.4.2.post1
 Pillow==6.0.0
