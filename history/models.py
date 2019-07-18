@@ -2,8 +2,8 @@ from django.db import models
 
 
 class History(models.Model):
-    name = models.CharField(max_length=20)
-    text = models.TextField()
+    name = models.CharField(max_length=20, verbose_name='Name')
+    text = models.TextField(verbose_name='Text')
 
     def __str__(self):
         return self.name

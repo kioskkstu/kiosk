@@ -5,7 +5,7 @@ from .models import *
 class TeacherSerializer(serializers.ModelSerializer):
     class Meta:
         model = Teacher
-        fields = ('name', 'photo', 'status', 'contact',)
+        fields = ('id', 'name', 'photo', 'status', 'contact',)
 
 
 class GroupSerializer(serializers.ModelSerializer):
@@ -30,7 +30,7 @@ class DepartmentSerializer(serializers.ModelSerializer):
 
 
 class FacultySerializer(serializers.ModelSerializer):
-    department = DepartmentSerializer(many=True)
+    departments_of_faculty = DepartmentSerializer(many=True)
 
     class Meta:
         model = Faculty
@@ -38,7 +38,7 @@ class FacultySerializer(serializers.ModelSerializer):
 
 
 class InstituteSerializer(serializers.ModelSerializer):
-    department = DepartmentSerializer(many=True)
+    departments_of_institute = DepartmentSerializer(many=True)
 
     class Meta:
         model = Institute
@@ -56,7 +56,7 @@ class BuildingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Building
-        fields = ('name', 'location', 'floor', 'classrooms')
+        fields = ('name', 'floor', 'classrooms')
 
 
 

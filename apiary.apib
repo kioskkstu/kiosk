@@ -1,0 +1,385 @@
+FORMAT: 1A
+HOST: http://127.0.0.1:8000
+
+# kiosk
+
+## Teacher's schedule [/schedule/teacher/{teacher_id}/]
+
+### List all teacher's schedule [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "time": 1,
+                "day_of_week": 1,
+                "subject": {
+                    "name": "Math"
+                },
+                "week": 1,
+                "type": 1,
+                "teacher": {
+                    "name": "Saliev Alisher Borubaevich",
+                    "photo": null,
+                    "status": "professor",
+                    "contact": "email: alisher@mail.ru"
+                },
+                "classroom": {
+                    "name": "301",
+                    "floor": 3,
+                    "about": "laboratory classroom"
+                },
+                "group": {
+                    "name": "PI(b)1-14"
+                }
+            },
+            {
+                "time": 1,
+                "day_of_week": 2,
+                "subject": {
+                    "name": "Programming languages"
+                },
+                "week": 1,
+                "type": 1,
+                "teacher": {
+                    "name": "Saliev Alisher Borubaevich",
+                    "photo": null,
+                    "status": "professor",
+                    "contact": "email: alisher@mail.ru"
+                },
+                "classroom": {
+                    "name": "301",
+                    "floor": 3,
+                    "about": "laboratory classroom"
+                },
+                "group": {
+                    "name": "PI(b)1-14"
+                }
+            },
+            {
+                "time": 2,
+                "day_of_week": 1,
+                "subject": {
+                    "name": "Programming languages"
+                },
+                "week": 1,
+                "type": 1,
+                "teacher": {
+                    "name": "Saliev Alisher Borubaevich",
+                    "photo": null,
+                    "status": "professor",
+                    "contact": "email: alisher@mail.ru"
+                },
+                "classroom": {
+                    "name": "301",
+                    "floor": 3,
+                    "about": "laboratory classroom"
+                },
+                "group": {
+                    "name": "IS(b)1-16"
+                }
+            }
+        ]
+
+
+## Group schedule [/schedule/group/{group_id}/]
+
+### List all schedule of group[GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "time": 2,
+                "day_of_week": 1,
+                "subject": {
+                    "name": "Programming languages"
+                },
+                "week": 1,
+                "type": 1,
+                "teacher": {
+                    "name": "Saliev Alisher Borubaevich",
+                    "photo": null,
+                    "status": "professor",
+                    "contact": "email: alisher@mail.ru"
+                },
+                "classroom": {
+                    "name": "301",
+                    "floor": 3,
+                    "about": "laboratory classroom"
+                },
+                "group": {
+                    "name": "IS(b)1-16"
+                }
+            },
+            {
+                "time": 1,
+                "day_of_week": 1,
+                "subject": {
+                    "name": "Math"
+                },
+                "week": 1,
+                "type": 1,
+                "teacher": {
+                    "name": "Stamkulova Guldana Kubanychbekovna",
+                    "photo": null,
+                    "status": "teacher",
+                    "contact": "phone: +996555444585"
+                },
+                "classroom": {
+                    "name": "301",
+                    "floor": 3,
+                    "about": "laboratory classroom"
+                },
+                "group": {
+                    "name": "IS(b)1-16"
+                }
+            }
+        ]
+        
+        
+## History [/history/]
+
+### List all histories [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "About KSTU",
+                "text": "Some history"
+            },
+            {
+                "name": "About KSTU",
+                "text": "Other history"
+            }
+        ]
+        
+## History [/history/{history_id}/]
+### History by id [GET]
+
++ Response 200 (application/json)
+
+        {
+            "name": "About KSTU",
+            "text": "Some history"
+        }
+
+## Faculty [/faculty/]
+### List all faculties [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "FIT",
+                "about": "Some about FIT",
+                "departments_of_faculty": [
+                    {
+                        "name": "POKS",
+                        "about": "Some about POKS",
+                        "teachers": [
+                            {
+                                "name": "Saliev Alisher Borubaevich",
+                                "photo": null,
+                                "status": "professor",
+                                "contact": "email: alisher@mail.ru"
+                            },
+                            {
+                                "name": "Stamkulova Guldana Kubanychbekovna",
+                                "photo": null,
+                                "status": "teacher",
+                                "contact": "phone: +996555444585"
+                            }
+                        ],
+                        "groups": [
+                            {
+                                "name": "IS(b)1-16"
+                            },
+                            {
+                                "name": "PI(b)1-14"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+
+## Faculty [/faculty/{faculty_id}/]
+### Faculty by id [GET]
+
++ Response 200 (application/json)
+
+        {
+            "name": "FIT",
+            "about": "Some about FIT",
+            "departments_of_faculty": [
+                {
+                    "name": "POKS",
+                    "about": "Some about POKS",
+                    "teachers": [
+                        {
+                            "name": "Saliev Alisher Borubaevich",
+                            "photo": null,
+                            "status": "professor",
+                            "contact": "email: alisher@mail.ru"
+                        },
+                        {
+                            "name": "Stamkulova Guldana Kubanychbekovna",
+                            "photo": null,
+                            "status": "teacher",
+                            "contact": "phone: +996555444585"
+                        }
+                    ],
+                    "groups": [
+                        {
+                            "name": "IS(b)1-16"
+                        },
+                        {
+                            "name": "PI(b)1-14"
+                        }
+                    ]
+                }
+            ]
+        }
+        
+        
+## Institute [/institute/]
+### List all institutes [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "IAT",
+                "about": "Some about IAT",
+                "departments_of_institute": [
+                    {
+                        "name": "PMI",
+                        "about": "Some about PMI",
+                        "teachers": [],
+                        "groups": []
+                    }
+                ]
+            }
+        ]
+
+## Institute [/institute/{institute_id}/]
+### Institute by id [GET]
+
++ Response 200 (application/json)
+
+        {
+            "name": "IAT",
+            "about": "Some about IAT",
+            "departments_of_institute": [
+                {
+                    "name": "PMI",
+                    "about": "Some about PMI",
+                    "teachers": [
+                            {
+                                "name": "Saliev Alisher Borubaevich",
+                                "photo": null,
+                                "status": "professor",
+                                "contact": "email: alisher@mail.ru"
+                            },
+                            {
+                                "name": "Stamkulova Guldana Kubanychbekovna",
+                                "photo": null,
+                                "status": "teacher",
+                                "contact": "phone: +996555444585"
+                            }
+                        ],
+                        "groups": [
+                            {
+                                "name": "IS(b)1-16"
+                            },
+                            {
+                                "name": "PI(b)1-14"
+                            }
+                        ]
+                }
+            ]
+        }
+
+
+## Building [/building/]
+### List of buildings [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "#1",
+                "location": "empty",
+                "floor": 4,
+                "classrooms": [
+                    {
+                        "name": "301",
+                        "floor": 3,
+                        "about": "laboratory classroom"
+                    }
+                ]
+            }
+        ]
+
+## Classroom [/classroom/]
+### List of classrooms [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "301",
+                "floor": 3,
+                "about": "laboratory classroom"
+            }
+        ]
+
+
+
+## Group [/group/]
+### List of groups [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "IS(b)1-16"
+            },
+            {
+                "name": "PI(b)1-14"
+            }
+        ]
+        
+## Teacher [/teacher/]
+### List of teachers [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "Saliev Alisher Borubaevich",
+                "photo": null,
+                "status": "professor",
+                "contact": "email: alisher@mail.ru"
+            },
+            {
+                "name": "Stamkulova Guldana Kubanychbekovna",
+                "photo": null,
+                "status": "teacher",
+                "contact": "phone: +996555444585"
+            }
+        ]
+        
+## Preuniversity [/preuniversity/]
+### List of preuniversities [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "lyceum",
+                "about": "Some about lyceum"
+            }
+        ]
