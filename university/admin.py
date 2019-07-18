@@ -5,7 +5,7 @@ from .models import *
 class DepartmentInline(admin.StackedInline):
     model = Department
     extra = 1
-    fields = ('name', 'about', 'name_en', 'about_en', 'name_kg', 'about_kg')
+    fields = ('name', 'name_ru', 'name_en', 'name_kg', 'about', 'about_ru', 'about_en', 'about_kg')
 
 
 class FacultyAdmin(admin.ModelAdmin):
