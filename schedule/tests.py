@@ -8,30 +8,31 @@ from django.urls import reverse
 class ScheduleModelTests(TestCase):
     @classmethod
     def setUp(self):
-        self.old_cnt1 = Subject.objects.count()
-        self.old_cnt2 = Schedule.objects.count()
-        self.faculty = Faculty.objects.create(name='test', about='test')
-        self.institute = Institute.objects.create(name='test', about='test')
-        self.department = Department.objects.create(name='test', about='test', faculty=self.faculty,
-                                                    institute=self.institute)
-        self.teacher = Teacher.objects.create(name='test', photo='', status='test', contact='test',
+        self.old_cnt_subject = Subject.objects.count()
+        self.old_cnt_schedule = Schedule.objects.count()
+
+        self.department = Department.objects.create(name='test', about='test')
+        self.building = Building.objects.create(name='1', location='1', floor='1')
+
+        self.subject = Subject.objects.create(name='test')
+
+        self.teacher = Teacher.objects.create(name='test', photo='', status='test', contact='email',
                                               department=self.department)
-        self.building = Building.objects.create(name='test', location='test', floor=1)
-        self.classroom = Classroom.objects.create(name='test', floor=1, about='test',
+        self.classroom = Classroom.objects.create(name='test', floor='1', about='test',
                                                   building=self.building)
         self.group = Group.objects.create(name='test', department=self.department)
-        self.subject = Subject.objects.create(name='temp')
-        self.schedule = Schedule.objects.create(time=1, day_of_week=1, week=1, type_of_lecture=1,
-                                                teacher=self.teacher, classroom=self.classroom,
-                                                subject=self.subject, group=self.group)
+
+        self.schedule = Schedule.objects.create(time='1', day_of_week='1', week='1', type='1', teacher=self.teacher,
+                                                classroom=self.classroom, subject=self.subject,
+                                                group=self.group)
 
     def test_model_create_Subject(self):
         self.new_cnt = Subject.objects.count()
-        self.assertNotEqual(self.old_cnt1, self.new_cnt)
+        self.assertNotEqual(self.old_cnt_subject, self.new_cnt)
 
     def test_model_create_Schedule(self):
         self.new_cnt = Schedule.objects.count()
-        self.assertNotEqual(self.old_cnt2, self.new_cnt)
+        self.assertNotEqual(self.old_cnt_schedule, self.new_cnt)
 
     def test_api_get_ScheduleOFTeacher(self):
         response = self.client.get(

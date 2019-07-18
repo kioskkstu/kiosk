@@ -17,7 +17,7 @@ class HistoryModelTests(TestCase):
     def test_api_get_History(self):
         response = self.client.get(
             reverse('history'),
-            kwargs={'pk': self.history.id}
+            kwarge={'pk': self.history.id}
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertContains(response, self.history)
@@ -30,3 +30,4 @@ class HistoryModelTests(TestCase):
     #         (response.data['name'], response.data['text']),
     #         ('test', 'test')
     #     )
+
