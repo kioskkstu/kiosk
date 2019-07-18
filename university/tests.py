@@ -22,7 +22,7 @@ class UniversityModelTests(TestCase):
                                                     institute=self.institute)
         self.teacher = Teacher.objects.create(name='test', photo='', status='test', contact='test',
                                               department=self.department)
-        self.building = Building.objects.create(name='test', location='test', floor=1)
+        self.building = Building.objects.create(name='test', floor=1)
         self.classroom = Classroom.objects.create(name='test', floor=1, about='test',
                                                   building=self.building)
         self.group = Group.objects.create(name='test', department=self.department)
@@ -122,39 +122,3 @@ class UniversityModelTests(TestCase):
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertContains(response, self.group)
-
-    # def test_api_get_preuniversity_detail(self):
-    #     response = self.client.get('/preuniversity/%s/' % self.preuniversity.id)
-    #
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
-    #     self.assertEqual(
-    #         (response.data['name'], response.data['about']),
-    #         ('test', 'test')
-    #     )
-    #
-    # def test_api_get_department_detail(self):
-    #     response = self.client.get('/department/%s/' % self.department.id)
-    #
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
-    #     self.assertEqual(
-    #         (response.data['name'], response.data['about']),
-    #         ('test', 'test')
-    #     )
-    #
-    # def test_api_get_faculty_detail(self):
-    #     response = self.client.get('/faculty/%s/' % self.faculty.id)
-    #
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
-    #     self.assertEqual(
-    #         (response.data['name'], response.data['about']),
-    #         ('test', 'test')
-    #     )
-    #
-    # def test_api_get_institute_detail(self):
-    #     response = self.client.get('/institute/%s/' % self.institute.id)
-    #
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
-    #     self.assertEqual(
-    #         (response.data['name'], response.data['about']),
-    #         ('test', 'test')
-    #     )
