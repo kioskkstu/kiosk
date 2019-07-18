@@ -4,7 +4,6 @@ from rest_framework import status
 from django.urls import reverse
 
 
-# Create your tests here.
 class UniversityModelTests(TestCase):
     @classmethod
     def setUp(self):
@@ -123,39 +122,3 @@ class UniversityModelTests(TestCase):
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertContains(response, self.group)
-
-    # def test_api_get_preuniversity_detail(self):
-    #     response = self.client.get('/preuniversity/%s/' % self.preuniversity.id)
-    #
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
-    #     self.assertEqual(
-    #         (response.data['name'], response.data['about']),
-    #         ('test', 'test')
-    #     )
-    #
-    # def test_api_get_department_detail(self):
-    #     response = self.client.get('/department/%s/' % self.department.id)
-    #
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
-    #     self.assertEqual(
-    #         (response.data['name'], response.data['about']),
-    #         ('test', 'test')
-    #     )
-    #
-    # def test_api_get_faculty_detail(self):
-    #     response = self.client.get('/faculty/%s/' % self.faculty.id)
-    #
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
-    #     self.assertEqual(
-    #         (response.data['name'], response.data['about']),
-    #         ('test', 'test')
-    #     )
-    #
-    # def test_api_get_institute_detail(self):
-    #     response = self.client.get('/institute/%s/' % self.institute.id)
-    #
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
-    #     self.assertEqual(
-    #         (response.data['name'], response.data['about']),
-    #         ('test', 'test')
-    #     )

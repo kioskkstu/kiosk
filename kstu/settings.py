@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': config("DB_ENGINE"),
         'OPTIONS': {
             'read_default_file': '/etc/mysql/my.cnf',
-        }
+        },
     }
 }
 
@@ -145,5 +145,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+_PATH = os.path.abspath(os.path.dirname(__file__))
+
+MEDIA_ROOT = os.path.join(_PATH, 'media')
 MEDIA_URL = '/media/'
-MEDIA_ROOT = 'media'
