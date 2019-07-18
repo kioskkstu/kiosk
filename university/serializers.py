@@ -11,13 +11,13 @@ class TeacherSerializer(serializers.ModelSerializer):
 class GroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = Group
-        fields = ('name',)
+        fields = ('id', 'name', 'grade',)
 
 
 class PreUniversitySerializer(serializers.ModelSerializer):
     class Meta:
         model = PreUniversity
-        fields = ('name', 'about',)
+        fields = ('id', 'name', 'about',)
 
 
 class DepartmentSerializer(serializers.ModelSerializer):
@@ -26,7 +26,7 @@ class DepartmentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Department
-        fields = ('name', 'about', 'teachers', 'groups',)
+        fields = ('id', 'name', 'about', 'teachers', 'groups',)
 
 
 class FacultySerializer(serializers.ModelSerializer):
@@ -34,7 +34,7 @@ class FacultySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Faculty
-        fields = ('name', 'about', 'departments_of_faculty',)
+        fields = ('id', 'name', 'about', 'departments_of_faculty',)
 
 
 class InstituteSerializer(serializers.ModelSerializer):
@@ -42,13 +42,13 @@ class InstituteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Institute
-        fields = ('name', 'about', 'departments_of_institute',)
+        fields = ('id', 'name', 'about', 'departments_of_institute',)
 
 
 class ClassroomSerializer(serializers.ModelSerializer):
     class Meta:
         model = Classroom
-        fields = ('name', 'floor', 'about',)
+        fields = ('id', 'name', 'floor', 'about',)
 
 
 class BuildingSerializer(serializers.ModelSerializer):
@@ -56,7 +56,7 @@ class BuildingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Building
-        fields = ('name', 'floor', 'classrooms')
+        fields = ('id', 'name', 'floor', 'classrooms')
 
 
 

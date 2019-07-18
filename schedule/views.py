@@ -13,7 +13,8 @@ class ScheduleOFTeacherAPIView(generics.ListAPIView):
 
     def get_queryset(self):
         teacher = self.kwargs['teacher']
-        return Schedule.objects.filter(teacher=teacher)
+        queryset = Schedule.objects.filter(teacher=teacher)
+        return queryset
 
 
 class ScheduleOFGroupAPIView(generics.ListAPIView):
