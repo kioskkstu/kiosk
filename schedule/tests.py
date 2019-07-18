@@ -37,7 +37,7 @@ class ScheduleModelTests(TestCase):
     def test_api_get_ScheduleOFTeacher(self):
         response = self.client.get(
             reverse('teacher'),
-            kwargs={'teacher': self.teacher.id}
+            kwargs={'teacher': self.schedule.id}
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertContains(response, self.teacher)
@@ -45,7 +45,7 @@ class ScheduleModelTests(TestCase):
     def test_api_get_ScheduleOFGroup(self):
         response = self.client.get(
             reverse('group'),
-            kwargs={'group': self.group.id}
+            kwargs={'group': self.schedule.id}
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertContains(response, self.group)

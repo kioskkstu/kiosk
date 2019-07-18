@@ -22,11 +22,12 @@ class HistoryModelTests(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertContains(response, self.history)
 
-    def test_api_get_History_detail(self):
-        response = self.client.get('/history/%s/' % self.history.id)
+    # def test_api_get_History_detail(self):
+    #     response = self.client.get('/history/%s/' % self.history.id)
+    #
+    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
+    #     self.assertEqual(
+    #         (response.data['name'], response.data['text']),
+    #         ('test', 'test')
+    #     )
 
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(
-            (response.data['name'], response.data['text']),
-            ('test', 'test')
-        )
