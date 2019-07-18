@@ -23,7 +23,7 @@ class UniversityModelTests(TestCase):
                                                     institute=self.institute)
         self.teacher = Teacher.objects.create(name='test', photo='', status='test', contact='test',
                                               department=self.department)
-        self.building = Building.objects.create(name='test', location='test', floor=1)
+        self.building = Building.objects.create(name='test', floor=1)
         self.classroom = Classroom.objects.create(name='test', floor=1, about='test',
                                                   building=self.building)
         self.group = Group.objects.create(name='test', department=self.department)
