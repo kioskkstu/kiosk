@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': config("DB_ENGINE"),
         'OPTIONS': {
             'read_default_file': '/etc/mysql/my.cnf',
-        }
+        },
     }
 }
 
