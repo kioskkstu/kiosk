@@ -13,7 +13,7 @@ If you want to change language, add following urls in front of links.
 
 ## Teacher's schedule [/schedule/teacher/{teacher_id}/]
 
-### List all teacher's schedule [GET]
+### List all schedules of teacher_id [GET]
 
 + Response 200 (application/json)
 
@@ -38,7 +38,8 @@ If you want to change language, add following urls in front of links.
                     "about": "laboratory classroom"
                 },
                 "group": {
-                    "name": "PI(b)1-14"
+                    "name": "PI(b)1-14",
+                    "grade": 2
                 }
             },
             {
@@ -61,7 +62,8 @@ If you want to change language, add following urls in front of links.
                     "about": "laboratory classroom"
                 },
                 "group": {
-                    "name": "PI(b)1-14"
+                    "name": "PI(b)1-14",
+                    "grade": 2
                 }
             },
             {
@@ -84,7 +86,8 @@ If you want to change language, add following urls in front of links.
                     "about": "laboratory classroom"
                 },
                 "group": {
-                    "name": "IS(b)1-16"
+                    "name": "IS(b)1-16",
+                    "grade": 1
                 }
             }
         ]
@@ -92,7 +95,7 @@ If you want to change language, add following urls in front of links.
 
 ## Group schedule [/schedule/group/{group_id}/]
 
-### List all schedule of group[GET]
+### List all schedules of group_id [GET]
 
 + Response 200 (application/json)
 
@@ -117,7 +120,8 @@ If you want to change language, add following urls in front of links.
                     "about": "laboratory classroom"
                 },
                 "group": {
-                    "name": "IS(b)1-16"
+                    "name": "IS(b)1-16",
+                    "grade": 1
                 }
             },
             {
@@ -140,7 +144,8 @@ If you want to change language, add following urls in front of links.
                     "about": "laboratory classroom"
                 },
                 "group": {
-                    "name": "IS(b)1-16"
+                    "name": "IS(b)1-16",
+                    "grade": 1
                 }
             }
         ]
@@ -202,10 +207,12 @@ If you want to change language, add following urls in front of links.
                         ],
                         "groups": [
                             {
-                                "name": "IS(b)1-16"
+                                "name": "IS(b)1-16",
+                                "grade": 1
                             },
                             {
-                                "name": "PI(b)1-14"
+                                "name": "PI(b)1-14",
+                                "grade": 2
                             }
                         ]
                     }
@@ -241,10 +248,12 @@ If you want to change language, add following urls in front of links.
                     ],
                     "groups": [
                         {
-                            "name": "IS(b)1-16"
+                            "name": "IS(b)1-16",
+                            "grade": 1
                         },
                         {
-                            "name": "PI(b)1-14"
+                            "name": "PI(b)1-14",
+                            "grade": 2
                         }
                     ]
                 }
@@ -265,8 +274,30 @@ If you want to change language, add following urls in front of links.
                     {
                         "name": "PMI",
                         "about": "Some about PMI",
-                        "teachers": [],
-                        "groups": []
+                        "teachers": [
+                            {
+                                "name": "Saliev Alisher Borubaevich",
+                                "photo": null,
+                                "status": "professor",
+                                "contact": "email: alisher@mail.ru"
+                            },
+                            {
+                                "name": "Stamkulova Guldana Kubanychbekovna",
+                                "photo": null,
+                                "status": "teacher",
+                                "contact": "phone: +996555444585"
+                            }
+                        ],
+                        "groups": [
+                            {
+                                "name": "IS(b)1-16",
+                                "grade": 1
+                            },
+                            {
+                                "name": "PI(b)1-14",
+                                "grade": 2
+                            }
+                        ]
                     }
                 ]
             }
@@ -300,10 +331,12 @@ If you want to change language, add following urls in front of links.
                         ],
                         "groups": [
                             {
-                                "name": "IS(b)1-16"
+                                "name": "IS(b)1-16",
+                                "grade": 1
                             },
                             {
-                                "name": "PI(b)1-14"
+                                "name": "PI(b)1-14",
+                                "grade": 2
                             }
                         ]
                 }
@@ -353,10 +386,12 @@ If you want to change language, add following urls in front of links.
 
         [
             {
-                "name": "IS(b)1-16"
+                "name": "IS(b)1-16",
+                "grade": 1
             },
             {
-                "name": "PI(b)1-14"
+                "name": "PI(b)1-14",
+                "grade": 2
             }
         ]
         
