@@ -7,3 +7,5 @@ class HistorySerializer(serializers.ModelSerializer):
     class Meta:
         model = History
         fields = ('id', 'name', 'text', )
+
+

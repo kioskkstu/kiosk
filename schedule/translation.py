@@ -5,4 +5,4 @@ from .models import *
 @register(Subject)
 class SubjectTranslationOptions(TranslationOptions):
     fields = ('name', )
-    required_languages = ('ru', 'en', 'kg',)
+    required_languages = ('ru', 'en', 'kg', )

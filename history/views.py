@@ -11,3 +11,4 @@ class HistoryAPIView(generics.ListAPIView):
 class HistoryDetailAPIView(generics.RetrieveAPIView):
     queryset = History.objects.all()
     serializer_class = HistorySerializer
+

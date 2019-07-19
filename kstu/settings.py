@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 from decouple import config
+from django.conf import global_settings
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -114,6 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'ru'
 
 # django-modeltranslation settings
+
 gettext = lambda s: s
 
 LANGUAGES = (
@@ -122,13 +124,31 @@ LANGUAGES = (
     ('kg', gettext('Kyrgyz')),
 )
 
+EXTRA_LANG_INFO = {
+    'kg': {
+        'bidi': False,
+        'code': 'kg',
+        'name': 'Kyrgyz',
+        'name_local': 'Кыргыз',
+    },
+}
+
+import django.conf.locale
+
+LANG_INFO = dict(django.conf.locale.LANG_INFO, **EXTRA_LANG_INFO)
+django.conf.locale.LANG_INFO = LANG_INFO
+
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
 MODELTRANSLATION_LANGUAGES = ('ru', 'en',  'kg', )
 MODELTRANSLATION_FALLBACK_LANGUAGES = ('ru', 'en', 'kg', )
 
+
 # end of django-modeltranslation settings
 
-LOCALE_PATHS = [(os.path.join(BASE_DIR, 'locale')), ]
+PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
+LOCALE_PATHS = (
+    os.path.join(PACKAGE_ROOT, 'locale'),
+)
 
 USE_I18N = True
 
@@ -149,3 +169,7 @@ _PATH = os.path.abspath(os.path.dirname(__file__))
 
 MEDIA_ROOT = os.path.join(_PATH, 'media')
 MEDIA_URL = '/media/'
+
+
+
+
