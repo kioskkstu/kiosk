@@ -28,7 +28,6 @@ class BuildingAdmin(admin.ModelAdmin):
 admin.site.register(PreUniversity)
 admin.site.register(Faculty, FacultyAdmin)
 admin.site.register(Institute, InstituteAdmin)
-admin.site.register(Department)
 admin.site.register(Teacher)
 admin.site.register(Building, BuildingAdmin)
 admin.site.register(Group)

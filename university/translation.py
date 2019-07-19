@@ -10,7 +10,7 @@ class TeacherTranslationOptions(TranslationOptions):
 
 @register(Group)
 class GroupTranslationOptions(TranslationOptions):
-    fields = ('name', 'grade')
+    fields = ('name',)
     required_languages = ('ru', 'en', 'kg', )
 
 

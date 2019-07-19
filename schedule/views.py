@@ -13,7 +13,17 @@ class ScheduleOFTeacherAPIView(generics.ListAPIView):
 
     def get_queryset(self):
         teacher = self.kwargs['teacher']
-        queryset = Schedule.objects.filter(teacher=teacher)
+        return Schedule.objects.filter(teacher=teacher)
+
+
+class GroupFilterByFaculty(generics.ListAPIView):
+    serializer_class = GroupSerializer
+
+    def get_queryset(self):
+        queryset = Group.objects.all()
+        faculty = self.request.query_params.get('faculty', None)
+        if faculty is not None:
+            queryset = queryset.filter(department__faculty=faculty)
         return queryset
 
 
