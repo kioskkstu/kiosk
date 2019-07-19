@@ -13,26 +13,18 @@ class ScheduleOFTeacherAPIView(generics.ListAPIView):
 
     def get_queryset(self):
         teacher = self.kwargs['teacher']
-        queryset = Schedule.objects.filter(teacher=teacher)
+        return Schedule.objects.filter(teacher=teacher)
+
+
+class GroupFilterByFaculty(generics.ListAPIView):
+    serializer_class = GroupSerializer
+
+    def get_queryset(self):
+        queryset = Group.objects.all()
         faculty = self.request.query_params.get('faculty', None)
         if faculty is not None:
-            queryset = queryset.filter(purchaser__username=username)
-        grade = self.request.query_params.get('grade', None)
-        group = self.request.query_params.get('group', None)
+            queryset = queryset.filter(department__faculty=faculty)
         return queryset
-
-# serializer_class = PurchaseSerializer
-#
-#     def get_queryset(self):
-#         """
-#         Optionally restricts the returned purchases to a given user,
-#         by filtering against a `username` query parameter in the URL.
-#         """
-#         queryset = Purchase.objects.all()
-#         username = self.request.query_params.get('username', None)
-#         if username is not None:
-#             queryset = queryset.filter(purchaser__username=username)
-#         return queryset
 
 
 class ScheduleOFGroupAPIView(generics.ListAPIView):
