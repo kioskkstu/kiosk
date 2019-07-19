@@ -26,6 +26,8 @@ SECRET_KEY = config("SECRET_KEY")
 DEBUG = config("DEBUG")
 
 ALLOWED_HOSTS = ['*']
+# terminal $ifconfig    -- get my IP address
+# django terminal ./manage.py runserver 0.0.0.0:8000
 
 
 # Application definition
@@ -43,9 +45,11 @@ INSTALLED_APPS = [
     'schedule',
     'university',
     'history',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -88,6 +92,16 @@ DATABASES = {
         },
     }
 }
+
+# django-cors-header
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8000',
+    'http://127.0.0.1:8000',
+    'http://192.168.1.152:8000'
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

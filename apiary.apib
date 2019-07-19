@@ -22,22 +22,26 @@ If you want to change language, add following urls in front of links.
                 "time": 1,
                 "day_of_week": 1,
                 "subject": {
+                    "id": 1,
                     "name": "Math"
                 },
                 "week": 1,
                 "type": 1,
                 "teacher": {
+                    "id": 1,
                     "name": "Saliev Alisher Borubaevich",
                     "photo": null,
                     "status": "professor",
                     "contact": "email: alisher@mail.ru"
                 },
                 "classroom": {
+                    "id": 1,
                     "name": "301",
                     "floor": 3,
                     "about": "laboratory classroom"
                 },
                 "group": {
+                    "id": 2,
                     "name": "PI(b)1-14",
                     "grade": 2
                 }
@@ -46,22 +50,26 @@ If you want to change language, add following urls in front of links.
                 "time": 1,
                 "day_of_week": 2,
                 "subject": {
+                    "id": 2,
                     "name": "Programming languages"
                 },
                 "week": 1,
                 "type": 1,
                 "teacher": {
+                    "id": 1,
                     "name": "Saliev Alisher Borubaevich",
                     "photo": null,
                     "status": "professor",
                     "contact": "email: alisher@mail.ru"
                 },
                 "classroom": {
+                    "id": 1,
                     "name": "301",
                     "floor": 3,
                     "about": "laboratory classroom"
                 },
                 "group": {
+                    "id": 2,
                     "name": "PI(b)1-14",
                     "grade": 2
                 }
@@ -70,22 +78,26 @@ If you want to change language, add following urls in front of links.
                 "time": 2,
                 "day_of_week": 1,
                 "subject": {
+                    "id": 2,
                     "name": "Programming languages"
                 },
                 "week": 1,
                 "type": 1,
                 "teacher": {
+                    "id": 1,
                     "name": "Saliev Alisher Borubaevich",
                     "photo": null,
                     "status": "professor",
                     "contact": "email: alisher@mail.ru"
                 },
                 "classroom": {
+                    "id": 1,
                     "name": "301",
                     "floor": 3,
                     "about": "laboratory classroom"
                 },
                 "group": {
+                    "id": 1,
                     "name": "IS(b)1-16",
                     "grade": 1
                 }
@@ -104,22 +116,26 @@ If you want to change language, add following urls in front of links.
                 "time": 2,
                 "day_of_week": 1,
                 "subject": {
+                    "id": 2,
                     "name": "Programming languages"
                 },
                 "week": 1,
                 "type": 1,
                 "teacher": {
+                    "id": 1,
                     "name": "Saliev Alisher Borubaevich",
                     "photo": null,
                     "status": "professor",
                     "contact": "email: alisher@mail.ru"
                 },
                 "classroom": {
+                    "id": 1,
                     "name": "301",
                     "floor": 3,
                     "about": "laboratory classroom"
                 },
                 "group": {
+                    "id": 1,
                     "name": "IS(b)1-16",
                     "grade": 1
                 }
@@ -128,22 +144,26 @@ If you want to change language, add following urls in front of links.
                 "time": 1,
                 "day_of_week": 1,
                 "subject": {
+                    "id": 1,
                     "name": "Math"
                 },
                 "week": 1,
                 "type": 1,
                 "teacher": {
+                    "id": 2,
                     "name": "Stamkulova Guldana Kubanychbekovna",
                     "photo": null,
                     "status": "teacher",
                     "contact": "phone: +996555444585"
                 },
                 "classroom": {
+                    "id": 1,
                     "name": "301",
                     "floor": 3,
                     "about": "laboratory classroom"
                 },
                 "group": {
+                    "id": 1,
                     "name": "IS(b)1-16",
                     "grade": 1
                 }
@@ -159,10 +179,12 @@ If you want to change language, add following urls in front of links.
 
         [
             {
+                "id": 1,
                 "name": "About KSTU",
                 "text": "Some history"
             },
             {
+                "id": 2,
                 "name": "About KSTU",
                 "text": "Other history"
             }
@@ -174,6 +196,7 @@ If you want to change language, add following urls in front of links.
 + Response 200 (application/json)
 
         {
+            "id": 1,
             "name": "About KSTU",
             "text": "Some history"
         }
@@ -185,20 +208,24 @@ If you want to change language, add following urls in front of links.
 
         [
             {
+                "id": 1,
                 "name": "FIT",
                 "about": "Some about FIT",
                 "departments_of_faculty": [
                     {
+                        "id": 1,
                         "name": "POKS",
                         "about": "Some about POKS",
                         "teachers": [
                             {
+                                "id": 1,
                                 "name": "Saliev Alisher Borubaevich",
                                 "photo": null,
                                 "status": "professor",
                                 "contact": "email: alisher@mail.ru"
                             },
                             {
+                                "id": 2,
                                 "name": "Stamkulova Guldana Kubanychbekovna",
                                 "photo": null,
                                 "status": "teacher",
@@ -207,10 +234,12 @@ If you want to change language, add following urls in front of links.
                         ],
                         "groups": [
                             {
+                                "id": 1,
                                 "name": "IS(b)1-16",
                                 "grade": 1
                             },
                             {
+                                "id": 2,
                                 "name": "PI(b)1-14",
                                 "grade": 2
                             }
@@ -226,20 +255,24 @@ If you want to change language, add following urls in front of links.
 + Response 200 (application/json)
 
         {
+            "id": 1,
             "name": "FIT",
             "about": "Some about FIT",
             "departments_of_faculty": [
                 {
+                    "id": 1,
                     "name": "POKS",
                     "about": "Some about POKS",
                     "teachers": [
                         {
+                            "id": 1,
                             "name": "Saliev Alisher Borubaevich",
                             "photo": null,
                             "status": "professor",
                             "contact": "email: alisher@mail.ru"
                         },
                         {
+                            "id": 2,
                             "name": "Stamkulova Guldana Kubanychbekovna",
                             "photo": null,
                             "status": "teacher",
@@ -248,10 +281,12 @@ If you want to change language, add following urls in front of links.
                     ],
                     "groups": [
                         {
+                            "id": 1,
                             "name": "IS(b)1-16",
                             "grade": 1
                         },
                         {
+                            "id": 2,
                             "name": "PI(b)1-14",
                             "grade": 2
                         }
@@ -268,20 +303,24 @@ If you want to change language, add following urls in front of links.
 
         [
             {
+                "id": 1,
                 "name": "IAT",
                 "about": "Some about IAT",
                 "departments_of_institute": [
                     {
+                        "id": 2,
                         "name": "PMI",
                         "about": "Some about PMI",
                         "teachers": [
                             {
+                                "id": 1,
                                 "name": "Saliev Alisher Borubaevich",
                                 "photo": null,
                                 "status": "professor",
                                 "contact": "email: alisher@mail.ru"
                             },
                             {
+                                "id": 2,
                                 "name": "Stamkulova Guldana Kubanychbekovna",
                                 "photo": null,
                                 "status": "teacher",
@@ -290,10 +329,12 @@ If you want to change language, add following urls in front of links.
                         ],
                         "groups": [
                             {
+                                "id": 1,
                                 "name": "IS(b)1-16",
                                 "grade": 1
                             },
                             {
+                                "id": 2,
                                 "name": "PI(b)1-14",
                                 "grade": 2
                             }
@@ -309,20 +350,24 @@ If you want to change language, add following urls in front of links.
 + Response 200 (application/json)
 
         {
+            "id": 1,
             "name": "IAT",
             "about": "Some about IAT",
             "departments_of_institute": [
                 {
+                    "id": 2,
                     "name": "PMI",
                     "about": "Some about PMI",
                     "teachers": [
                             {
+                                "id": 1,
                                 "name": "Saliev Alisher Borubaevich",
                                 "photo": null,
                                 "status": "professor",
                                 "contact": "email: alisher@mail.ru"
                             },
                             {
+                                "id": 2,
                                 "name": "Stamkulova Guldana Kubanychbekovna",
                                 "photo": null,
                                 "status": "teacher",
@@ -331,14 +376,130 @@ If you want to change language, add following urls in front of links.
                     ],
                     "groups": [
                         {
+                            "id": 1,
                             "name": "IS(b)1-16",
                             "grade": 1
                         },
                         {
+                            "id": 2,
                             "name": "PI(b)1-14",
                             "grade": 2
                         }
                     ]
+                }
+            ]
+        }
+        
+## Department [/department/]
+### List of departments [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
+                "name": "POKS",
+                "about": "Some about POKS",
+                "teachers": [
+                    {
+                        "id": 1,
+                        "name": "Saliev Alisher Borubaevich",
+                        "photo": null,
+                        "status": "professor",
+                        "contact": "email: alisher@mail.ru"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Stamkulova Guldana Kubanychbekovna",
+                        "photo": null,
+                        "status": "teacher",
+                        "contact": "phone: +996555444585"
+                    }
+                ],
+                "groups": [
+                    {
+                        "id": 1,
+                        "name": "IS(b)1-16",
+                        "grade": 1
+                    },
+                    {
+                        "id": 2,
+                        "name": "PI(b)1-14",
+                        "grade": 2
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "name": "PMI",
+                "about": "Some about PMI",
+                "teachers": [
+                    {
+                        "id": 1,
+                        "name": "Saliev Alisher Borubaevich",
+                        "photo": null,
+                        "status": "professor",
+                        "contact": "email: alisher@mail.ru"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Stamkulova Guldana Kubanychbekovna",
+                        "photo": null,
+                        "status": "teacher",
+                        "contact": "phone: +996555444585"
+                    }
+                ],
+                "groups": [
+                    {
+                        "id": 1,
+                        "name": "IS(b)1-16",
+                        "grade": 1
+                    },
+                    {
+                        "id": 2,
+                        "name": "PI(b)1-14",
+                        "grade": 2
+                    }
+                ]
+            }
+        ]
+        
+
+## Department [/department/{department_id}/]
+### Department by id [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "name": "POKS",
+            "about": "Some about POKS",
+            "teachers": [
+                {
+                    "id": 1,
+                    "name": "Saliev Alisher Borubaevich",
+                    "photo": null,
+                    "status": "professor",
+                    "contact": "email: alisher@mail.ru"
+                },
+                {
+                    "id": 2,
+                    "name": "Stamkulova Guldana Kubanychbekovna",
+                    "photo": null,
+                    "status": "teacher",
+                    "contact": "phone: +996555444585"
+                }
+            ],
+            "groups": [
+                {
+                    "id": 1,
+                    "name": "IS(b)1-16",
+                    "grade": 1
+                },
+                {
+                    "id": 2,
+                    "name": "PI(b)1-14",
+                    "grade": 2
                 }
             ]
         }
@@ -351,11 +512,13 @@ If you want to change language, add following urls in front of links.
 
         [
             {
+                "id": 1,
                 "name": "#1",
                 "location": "empty",
                 "floor": 4,
                 "classrooms": [
                     {
+                        "id": 1,
                         "name": "301",
                         "floor": 3,
                         "about": "laboratory classroom"
@@ -371,6 +534,7 @@ If you want to change language, add following urls in front of links.
 
         [
             {
+                "id": 1,
                 "name": "301",
                 "floor": 3,
                 "about": "laboratory classroom"
@@ -386,10 +550,12 @@ If you want to change language, add following urls in front of links.
 
         [
             {
+                "id": 1,
                 "name": "IS(b)1-16",
                 "grade": 1
             },
             {
+                "id": 2,
                 "name": "PI(b)1-14",
                 "grade": 2
             }
@@ -402,12 +568,14 @@ If you want to change language, add following urls in front of links.
 
         [
             {
+                "id": 1,
                 "name": "Saliev Alisher Borubaevich",
                 "photo": null,
                 "status": "professor",
                 "contact": "email: alisher@mail.ru"
             },
             {
+                "id": 2,
                 "name": "Stamkulova Guldana Kubanychbekovna",
                 "photo": null,
                 "status": "teacher",
@@ -422,6 +590,7 @@ If you want to change language, add following urls in front of links.
 
         [
             {
+                "id": 1,
                 "name": "lyceum",
                 "about": "Some about lyceum"
             }
