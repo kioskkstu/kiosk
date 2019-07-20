@@ -146,9 +146,8 @@ MODELTRANSLATION_FALLBACK_LANGUAGES = ('ru', 'en', 'kg', )
 
 # end of django-modeltranslation settings
 
-PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
 LOCALE_PATHS = (
-    os.path.join(PACKAGE_ROOT, 'locale'),
+    os.path.join(BASE_DIR, 'locale'),
 )
 
 USE_I18N = True
