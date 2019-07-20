@@ -138,22 +138,9 @@ LANGUAGES = (
     ('kg', gettext('Kyrgyz')),
 )
 
-EXTRA_LANG_INFO = {
-    'kg': {
-        'bidi': False,
-        'code': 'kg',
-        'name': 'Kyrgyz',
-        'name_local': 'Кыргыз',
-    },
-}
-
-import django.conf.locale
-
-LANG_INFO = dict(django.conf.locale.LANG_INFO, **EXTRA_LANG_INFO)
-django.conf.locale.LANG_INFO = LANG_INFO
-
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
 MODELTRANSLATION_LANGUAGES = ('ru', 'en',  'kg', )
+MODELTRANSLATION_AVAILABLE_LANGUAGES = ('ru', 'en',  'kg', )
 MODELTRANSLATION_FALLBACK_LANGUAGES = ('ru', 'en', 'kg', )
 
 
@@ -183,7 +170,3 @@ _PATH = os.path.abspath(os.path.dirname(__file__))
 
 MEDIA_ROOT = os.path.join(_PATH, 'media')
 MEDIA_URL = '/media/'
-
-
-
-
