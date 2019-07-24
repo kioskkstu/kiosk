@@ -54,7 +54,7 @@ class Department(models.Model):
                                   on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.faculty}.{self.name}'
 
     class Meta:
         verbose_name = 'Department'
