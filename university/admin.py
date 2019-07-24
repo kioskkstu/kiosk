@@ -21,6 +21,10 @@ class ClassroomInline(admin.StackedInline):
     extra = 1
 
 
+class TeacherAdmin(admin.ModelAdmin):
+    ordering = ('name',)
+
+
 class BuildingAdmin(admin.ModelAdmin):
     inlines = [ClassroomInline, ]
 
