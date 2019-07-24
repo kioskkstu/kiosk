@@ -6,14 +6,17 @@ class DepartmentInline(admin.StackedInline):
     model = Department
     extra = 1
     fields = ('name', 'name_ru', 'name_en', 'name_kg', 'about', 'about_ru', 'about_en', 'about_kg')
+    ordering = ['name', ]
 
 
 class FacultyAdmin(admin.ModelAdmin):
     inlines = [DepartmentInline, ]
+    ordering = ['name', ]
 
 
 class InstituteAdmin(admin.ModelAdmin):
     inlines = [DepartmentInline, ]
+    ordering = ['name', ]
 
 
 class ClassroomInline(admin.StackedInline):
@@ -22,17 +25,25 @@ class ClassroomInline(admin.StackedInline):
 
 
 class TeacherAdmin(admin.ModelAdmin):
-    ordering = ('name',)
+    ordering = ['name', ]
+
+
+class ClassroomAdmin(admin.ModelAdmin):
+    ordering = ['name', ]
 
 
 class BuildingAdmin(admin.ModelAdmin):
     inlines = [ClassroomInline, ]
 
 
+class GroupAdmin(admin.ModelAdmin):
+    ordering = ['name', ]
+
+
 admin.site.register(PreUniversity)
 admin.site.register(Faculty, FacultyAdmin)
 admin.site.register(Institute, InstituteAdmin)
-admin.site.register(Teacher)
+admin.site.register(Teacher, TeacherAdmin)
 admin.site.register(Building, BuildingAdmin)
-admin.site.register(Group)
-admin.site.register(Classroom)
+admin.site.register(Group, GroupAdmin)
+admin.site.register(Classroom, ClassroomAdmin)
