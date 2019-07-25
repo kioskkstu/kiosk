@@ -10,7 +10,7 @@ GRADE_CHOICES = (
 
 
 class PreUniversity(models.Model):
-    name = models.CharField(max_length=40, verbose_name='Name')
+    name = models.CharField(max_length=100, verbose_name='Name')
     about = models.TextField(verbose_name='About')
 
     def __str__(self):
@@ -22,7 +22,7 @@ class PreUniversity(models.Model):
 
 
 class Faculty(models.Model):
-    name = models.CharField(max_length=50, verbose_name='Name')
+    name = models.CharField(max_length=100, verbose_name='Name')
     about = models.TextField(verbose_name='About')
 
     def __str__(self):
@@ -34,7 +34,7 @@ class Faculty(models.Model):
 
 
 class Institute(models.Model):
-    name = models.CharField(max_length=50, verbose_name='Name')
+    name = models.CharField(max_length=100, verbose_name='Name')
     about = models.TextField(verbose_name='About')
 
     def __str__(self):
@@ -46,7 +46,7 @@ class Institute(models.Model):
 
 
 class Department(models.Model):
-    name = models.CharField(max_length=50, verbose_name='Name')
+    name = models.CharField(max_length=100, verbose_name='Name')
     about = models.TextField(verbose_name='About')
     faculty = models.ForeignKey(Faculty, related_name="departments_of_faculty", verbose_name='Faculty',
                                 on_delete=models.CASCADE, null=True, blank=True)
