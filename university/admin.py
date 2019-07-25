@@ -37,7 +37,8 @@ class BuildingAdmin(admin.ModelAdmin):
 
 
 class GroupAdmin(admin.ModelAdmin):
-    ordering = ['name', ]
+    ordering = ['name', 'department', 'grade', ]
+    list_display = ['name', 'department', 'grade', ]
 
 
 admin.site.register(PreUniversity)
