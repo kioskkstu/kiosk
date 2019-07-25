@@ -11,7 +11,7 @@ GRADE_CHOICES = (
 
 class PreUniversity(models.Model):
     name = models.CharField(max_length=100, verbose_name='Name')
-    about = models.TextField(verbose_name='About')
+    about = models.TextField(verbose_name='About', null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -23,7 +23,7 @@ class PreUniversity(models.Model):
 
 class Faculty(models.Model):
     name = models.CharField(max_length=100, verbose_name='Name')
-    about = models.TextField(verbose_name='About')
+    about = models.TextField(verbose_name='About', null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -35,7 +35,7 @@ class Faculty(models.Model):
 
 class Institute(models.Model):
     name = models.CharField(max_length=100, verbose_name='Name')
-    about = models.TextField(verbose_name='About')
+    about = models.TextField(verbose_name='About', null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -47,7 +47,7 @@ class Institute(models.Model):
 
 class Department(models.Model):
     name = models.CharField(max_length=100, verbose_name='Name')
-    about = models.TextField(verbose_name='About')
+    about = models.TextField(verbose_name='About', null=True, blank=True)
     faculty = models.ForeignKey(Faculty, related_name="departments_of_faculty", verbose_name='Faculty',
                                 on_delete=models.CASCADE, null=True, blank=True)
     institute = models.ForeignKey(Institute, related_name="departments_of_institute", verbose_name='Institute',
@@ -96,7 +96,7 @@ class Building(models.Model):
 class Classroom(models.Model):
     name = models.CharField(max_length=20, verbose_name='Name')
     floor = models.PositiveIntegerField(verbose_name='Floor')
-    about = models.CharField(null=True, max_length=50, verbose_name='About')
+    about = models.CharField(null=True, blank=True, max_length=50, verbose_name='About')
     building = models.ForeignKey(Building, related_name='classrooms',
                                  on_delete=models.CASCADE, verbose_name='Building')
 
