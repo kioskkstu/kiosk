@@ -69,8 +69,8 @@ class Department(models.Model):
 class Teacher(models.Model):
     name = models.CharField(max_length=50, verbose_name='Name')
     photo = models.ImageField(null=True, blank=True, verbose_name='Photo')
-    status = models.CharField(max_length=50, verbose_name='Status')
-    contact = models.CharField(max_length=50, verbose_name='Contact')
+    status = models.CharField(max_length=80, verbose_name='Status')
+    contact = models.CharField(max_length=80, verbose_name='Contact')
     department = models.ForeignKey(Department, related_name='teachers',
                                    on_delete=models.CASCADE, verbose_name='Department')
 
